@@ -1,6 +1,6 @@
 # ひらがな　と　かたかな　れんしゅうする　のために　パイテョン　の　プログラム
 import json
-from random import random
+from random import choice
 
 # Section: Load Data
 file = open('./char_map.json')
@@ -23,8 +23,9 @@ if user_ask.upper() == 'H':
     print("===========================")
     print('You will practise Hiragana now. You will enter Romaji equivalent of the sounds. Enter "q" in the case you want to quit practice')
     print("===========================")
+    usr_ans = ''
     while not usr_ans == 'q':
-        hiragana, romaji = random.choice(list(hiraganas.items()))
+        hiragana, romaji = choice(list(hiraganas.items()))
         usr_ans = input(f'Enter Romaji for {hiragana}\n')
         if usr_ans.lower() == 'q':
             print('Thank you!')
@@ -39,8 +40,9 @@ elif user_ask.upper() == 'K':
     print("===========================")
     print('You will practise Katakana now. You will enter Romaji equivalent of the sounds. Enter "q" in the case you want to quit practice')
     print("===========================")
+    usr_ans = ''
     while not usr_ans == 'q':
-        katakana, romaji = random.choice(list(katakanas.items()))
+        katakana, romaji = choice(list(katakanas.items()))
         usr_ans = input(f'Enter Romaji for {katakana}\n')
         if usr_ans.lower() == 'q':
             print('Thank you!')
