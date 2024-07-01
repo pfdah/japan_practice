@@ -1,5 +1,6 @@
 # ひらがな　と　かたかな　れんしゅうする　のために　パイテョン　の　プログラム
 import json
+from random import random
 
 # Section: Load Data
 file = open('./char_map.json')
@@ -22,28 +23,29 @@ if user_ask.upper() == 'H':
     print("===========================")
     print('You will practise Hiragana now. You will enter Romaji equivalent of the sounds. Enter "q" in the case you want to quit practice')
     print("===========================")
-    for i in hiraganas:
-        usr_ans = input(f'Enter Romaji for {i}\n')
+    while not usr_ans == 'q':
+        hiragana, romaji = random.choice(list(hiraganas.items()))
+        usr_ans = input(f'Enter Romaji for {hiragana}\n')
         if usr_ans.lower() == 'q':
             print('Thank you!')
             break
-        elif usr_ans.lower() == hiraganas[i]:
+        elif usr_ans.lower() == romaji:
             print('Correct!')
         else:
-            print(f'Incorrect! The correct pronunciation is "{hiraganas[i]}"')
+            print(f'Incorrect! The correct pronunciation is "{romaji}"')
 
 elif user_ask.upper() == 'K':
     quiz_flag = 'Katakana'
     print("===========================")
     print('You will practise Katakana now. You will enter Romaji equivalent of the sounds. Enter "q" in the case you want to quit practice')
     print("===========================")
-    for i in katakanas:
-        usr_ans = input(f'Enter Romaji for {i}\n')
+    while not usr_ans == 'q':
+        katakana, romaji = random.choice(list(katakanas.items()))
+        usr_ans = input(f'Enter Romaji for {katakana}\n')
         if usr_ans.lower() == 'q':
             print('Thank you!')
             break
-        elif usr_ans.lower() == katakanas[i]:
+        elif usr_ans.lower() == romaji:
             print('Correct!')
-        
         else:
-            print(f'Incorrect! The correct pronunciation is "{katakanas[i]}"')
+            print(f'Incorrect! The correct pronunciation is "{romaji}"')
